@@ -1,38 +1,26 @@
-import { type User, type InsertUser } from "@shared/schema";
+import { reports, type Report, type InsertReport } from "@shared/schema";
+import { db } from "./db";
+import { desc } from "drizzle-orm";
 import { randomUUID } from "crypto";
 
-// modify the interface with any CRUD methods
-// you might need
-
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  createReport(report: InsertReport): Promise<Report>;
+  getAllReports(): Promise<Report[]>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-
-  constructor() {
-    this.users = new Map();
-  }
-
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
-  }
-
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
+export class DatabaseStorage implements IStorage {
+  async createReport(insertReport: InsertReport): Promise<Report> {
     const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+    const [report] = await db
+      .insert(reports)
+      .values({ ...insertReport, id })
+      .returning();
+    return report;
+  }
+
+  async getAllReports(): Promise<Report[]> {
+    return db.select().from(reports).orderBy(desc(reports.createdAt));
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();

@@ -1,0 +1,41 @@
+# docker-compose.prod.yml
+
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: bbw_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+
+  backend:
+    image: iqimran/medi-calculator-backend:latest
+    container_name: medi-calculator-backend
+    restart: unless-stopped
+    depends_on:
+      - db
+    env_file:
+      - ./backend/.env.prod
+    ports:
+      - "8000:8000"
+
+  frontend:
+    image: iqimran/medi-calculator-frontend:latest
+    container_name: medi-calculator-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      NEXT_PUBLIC_API_URL: "https://your-backend-domain.com" # or http://your-server-ip:8000
+    ports:
+      - "80:3000" # expose Next.js on port 80
+
+volumes:
+  db_data:

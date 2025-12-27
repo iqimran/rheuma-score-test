@@ -1,19 +1,18 @@
+import "./globals.css";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { AppShell } from "../components/AppShell";
 
-import { ReactNode } from 'react';
-import './globals.css';
-
-export const metadata = {
-  title: 'Calorie Calculator',
-  description: 'Next + Tailwind Calorie Calculator',
+export const metadata: Metadata = {
+  title: "Rheumatology Calculators",
+  description: "DAS28, CDAI, SDAI, ASDAS calculators (frontend UI)",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html>
-      <body className="bg-gray-100">
-        <div className="max-w-6xl mx-auto p-6">
-          {children}
-        </div>
+    <html lang="en">
+      <body className="min-h-screen bg-ink-50">
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

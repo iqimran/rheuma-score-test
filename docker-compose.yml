@@ -13,15 +13,15 @@ services:
       MYSQL_USER: medi_calculator
       MYSQL_PASSWORD: Root@123
     ports:
-      - "3306:3306"
+      - "3307:3307"
     volumes:
       - db_data:/var/lib/mysql
 
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
-    container_name: medi_calculator_backend
+      dockerfile: Dockerfile.dev
+    container_name: backend
     restart: unless-stopped
     depends_on:
       - db
@@ -33,11 +33,22 @@ services:
       - ./backend:/var/www/html
     # For simple dev, using artisan serve inside container
 
+  vite:
+    image: node:22-alpine
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    command: sh -c "npm install && npm run dev"
+    ports:
+    - "5173:5173"
+    depends_on:
+    - backend
+
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
-    container_name: medi_calculator_frontend
+      dockerfile: Dockerfile.dev
+    container_name: frontend
     restart: unless-stopped
     depends_on:
       - backend

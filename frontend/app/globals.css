@@ -5,3 +5,30 @@
 
 /* small helper */
 html, body, #__next { height: 100%; }
+
+:root {
+  color-scheme: light;
+}
+
+/* Design system helpers */
+.glass {
+  @apply bg-white/70 backdrop-blur-md border border-white/60 shadow-glass rounded-2xl;
+}
+.card {
+  @apply bg-white border border-ink-100 shadow-soft rounded-2xl;
+}
+.label {
+  @apply text-sm font-medium text-ink-700;
+}
+.hint {
+  @apply text-xs text-ink-500;
+}
+.input {
+  @apply mt-2 w-full rounded-xl border border-ink-200 bg-white px-3 py-2 text-ink-900 outline-none focus:ring-2 focus:ring-brand-300;
+}
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl bg-brand-600 px-4 py-2.5 text-white font-medium hover:bg-brand-700 active:bg-brand-800 transition;
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center rounded-xl border border-ink-200 bg-white px-4 py-2.5 text-ink-800 font-medium hover:bg-ink-50 transition;
+}

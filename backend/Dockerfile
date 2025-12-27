@@ -13,8 +13,30 @@ COPY composer.json composer.lock ./
 # Install dependencies (no dev deps for prod)
 RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
+
 ############################
-# 2) PHP runtime image     #
+# 2) Build vite assets
+############################
+FROM node:22-alpine AS vite
+
+WORKDIR /app
+
+# Copy only frontend files first (better layer caching)
+COPY package.json package-lock.json ./
+# Install dependencies
+RUN npm install
+# Copy frontend source code
+COPY . .
+# Build production assets
+RUN npm run build
+
+# Copy frontend assets
+FROM vendor AS final
+COPY --from=frontend /app/dist ./public/dist
+
+
+############################
+# 3) PHP runtime image     #
 ############################
 FROM php:8.2-fpm-alpine
 
@@ -55,13 +77,12 @@ COPY --from=vendor /app/vendor ./vendor
 RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
+RUN php artisan config:cache || true && \
+    php artisan route:cache || true && \
+    php artisan view:cache || true
+
 # Expose Laravel port
 EXPOSE 8000
 
-# Laravel app env
-ENV APP_ENV=production
-ENV APP_DEBUG=false
-ENV APP_URL=http://localhost:8000
-
 # Run Laravel's built-in server (OK for small/medium apps & simplicity)
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+CMD ["php-fpm"]

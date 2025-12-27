@@ -38,7 +38,7 @@ RUN npm run build
 ############################
 # 3) PHP runtime
 ############################
-FROM php:8.2-fpm-alpine
+FROM php:8.2-fpm-alpine AS php-runtime
 
 RUN apk add --no-cache \
     bash curl mysql-client \
@@ -54,7 +54,7 @@ WORKDIR /var/www/html
 
 COPY . .
 COPY --from=vendor /app/vendor ./vendor
-COPY --from=vite /app/dist ./public/dist
+COPY --from=vite /app/public/build ./public/build
 
 RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache

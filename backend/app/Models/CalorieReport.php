@@ -6,23 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class CalorieReport extends Model
 {
+    public $timestamps = false;
     protected $fillable = [
-        'user_id',
-        'gender',
-        'age',
-        'weight_kg',
-        'height_cm',
-        'height_display',
-        'weight_unit',
-        'height_unit',
-        'activity_level',
-        'result_calories',
-        'breakdown',
-        'payload',
+        'report_name',
+        'report_slug',
+        'input_data',
+        'calculated_score',
+        'interpretation',
+        'ip_address',
+        'country',
+        'city',
+        'user_agent',
     ];
 
     protected $casts = [
-        'breakdown' => 'array',
-        'payload' => 'array',
+        'input_data' => 'array',
     ];
 }

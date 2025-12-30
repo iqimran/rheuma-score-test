@@ -3,7 +3,7 @@ import { Info, Lightbulb, Stethoscope, BookOpen } from 'lucide-react';
 export default function SdaiClinicalInfo() {
   return (
     <div className="space-y-6">
-      {/* <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+      <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
         <div className="flex items-center gap-2 mb-4">
           <div className="bg-blue-100 p-2 rounded-lg">
             <Stethoscope className="w-5 h-5 text-blue-600" />
@@ -19,26 +19,27 @@ export default function SdaiClinicalInfo() {
             <span className="text-blue-600 font-bold mt-0.5">•</span>
             <span>Reassessing patients after initiating new RA medications</span>
           </li>
-          <li className="flex items-start gap-2">
-            <span className="text-blue-600 font-bold mt-0.5">•</span>
-            <span>At every patient visit for optimal RA management</span>
-          </li>
         </ul>
-      </div> */}
+      </div>
 
-      {/* <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+      <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
         <div className="flex items-center gap-2 mb-4">
           <div className="bg-green-100 p-2 rounded-lg">
             <Lightbulb className="w-5 h-5 text-green-600" />
           </div>
           <h3 className="text-lg font-bold text-gray-900">Why Use SDAI</h3>
         </div>
-        <p className="text-sm text-gray-700 leading-relaxed">
-          The SDAI provides a comprehensive disease severity overview using only clinical data,
-          without requiring laboratory tests. It correlates closely with laboratory-based indices
-          (SDAI, DAS-28) and helps guide therapy intensity based on activity levels.
-        </p>
-      </div> */}
+        <ul className="space-y-2 text-sm text-gray-700">
+          <li className="flex items-start gap-2">
+            <span className="text-blue-600 font-bold mt-0.5">•</span>
+            <span>The Simplidied Disease Activity Index (SDAI) provides an excellent overview of a patient's disease severity (it correlates closely with the CDAI which does not require laboratory data) and the DAS-28.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-blue-600 font-bold mt-0.5">•</span>
+            <span>The SDAI can also help guide therapy based on severity of disease.</span>
+          </li>
+        </ul>
+      </div>
 
       {/* <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
         <div className="flex items-center gap-2 mb-4">

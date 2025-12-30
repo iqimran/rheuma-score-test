@@ -34,7 +34,7 @@ services:
     depends_on:
       - backend
     environment:
-      NEXT_PUBLIC_API_URL: "https://your-backend-domain.com" # or http://your-server-ip:8000
+      NEXT_PUBLIC_API_URL: "http://localhost:8000" # or http://your-server-ip:8000
     ports:
       - "80:3000" # expose Next.js on port 80
 

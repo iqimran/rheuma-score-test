@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import {
   Card,
   CardContent,
@@ -17,6 +17,7 @@ import { Activity, Info, Calculator as CalcIcon, Printer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function DAS28Calculator() {
+  const hasLoggedRef = useRef(false);
   const [patientId, setPatientId] = useState('');
   const [tenderJoints, setTenderJoints] = useState('');
   const [swollenJoints, setSwollenJoints] = useState('');
@@ -30,6 +31,15 @@ export default function DAS28Calculator() {
   const esrVal = Number(esr);
   const crpVal = Number(crp);
   const gh = globalHealth[0];
+
+  const inputData = {
+    patient_id: patientId || null,
+    tender_joints: tjc,
+    swollen_joints: sjc,
+    esr: esrVal || null,
+    crp: crpVal || null,
+    global_health: gh,
+ };
 
   const mode = esr ? 'ESR' : crp ? 'CRP' : null;
 
@@ -86,6 +96,45 @@ export default function DAS28Calculator() {
   }, [tjc, sjc, esrVal, crpVal, gh, mode]);
 
   const handlePrint = () => window.print();
+
+  // api call to save calculation could be added here 
+  const logReport = async (result) => {
+    try {
+      if (!process.env.NEXT_PUBLIC_API_URL) {
+        throw new Error("API URL is not defined");
+      }
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reports`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          report_name: `DAS28`,
+          report_slug: `das28`,
+          input_data: inputData,
+          calculated_score: result.score,
+          interpretation: result.interpretation,
+        }),
+      });
+    } catch (error) {
+      console.error("Report logging failed", error);
+    }
+  };
+
+  useEffect(() => {
+    if (!result) return;
+
+    if (hasLoggedRef.current) return;
+
+    hasLoggedRef.current = true;
+    logReport(result);
+
+  }, [result]);
+
+
+//   useEffect(() => {
+//   hasLoggedRef.current = false;
+// }, [tjc, sjc, esrVal, crpVal, gh]);
 
   /* -------------------- UI -------------------- */
   return (

@@ -3,10 +3,13 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CalorieReportController; // Ensure this class exists in the specified namespace
 
 Route::get('/', function () {
     return redirect('/login');
 });
+
+Route::post('/reports', [CalorieReportController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

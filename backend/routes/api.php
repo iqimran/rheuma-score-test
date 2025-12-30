@@ -12,9 +12,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 Route::middleware([])->group(function () {
     Route::get('/reports', [CalorieReportController::class, 'index']); // admin listing
     Route::get('/reports/{calorieReport}', [CalorieReportController::class, 'show']);
+    //Route::post('/reports', [CalorieReportController::class, 'store']);
     Route::delete('/reports/{calorieReport}', [CalorieReportController::class, 'destroy']);
 });
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+// Route::get('/user', function (Request $request) {
+//     return $request->user();
+// })->middleware('auth:sanctum');

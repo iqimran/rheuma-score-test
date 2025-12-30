@@ -31,7 +31,7 @@ export default function CdaiClinicalInfo() {
           <div className="bg-green-100 p-2 rounded-lg">
             <Lightbulb className="w-5 h-5 text-green-600" />
           </div>
-          <h3 className="text-lg font-bold text-gray-900">Why Use CDAI</h3>
+          <h3 className="text-lg font-bold text-gray-900">Why Use CDAI</h3> 
         </div>
         <p className="text-sm text-gray-700 leading-relaxed">
           The CDAI provides a comprehensive disease severity overview using only clinical data,

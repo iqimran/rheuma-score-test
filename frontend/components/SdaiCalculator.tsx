@@ -32,14 +32,17 @@ export default function SdaiCalculator({
     const sj = parseFloat(swollenJoints);
     const pg = parseFloat(patientGlobal);
     const prvg = parseFloat(providerGlobal);
-    const crpValue = parseFloat(crp);  
+    let crpMgL = parseFloat(crp);  
 
-    if (isNaN(tj) || isNaN(sj) || isNaN(pg) || isNaN(prvg) || isNaN(crpValue)) {
+    if (isNaN(tj) || isNaN(sj) || isNaN(pg) || isNaN(prvg) || isNaN(crpMgL)) {
       return null;
     }
+      
+    // 🔹 Convert CRP from mg/L → mg/dL
+    crpMgL = crpMgL / 10;
 
-    const score = tj + sj + pg + prvg + crpValue;
-    return score;
+    const score = tj + sj + pg + prvg + crpMgL;
+    return Number(score.toFixed(2));
   };
 
   const sdaiScore = calculateSDAI();

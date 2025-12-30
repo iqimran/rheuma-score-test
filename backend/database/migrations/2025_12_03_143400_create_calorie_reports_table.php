@@ -13,18 +13,23 @@ return new class extends Migration
     {
         Schema::create('calorie_reports', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete(); // who created the report (if authenticated)
-            $table->enum('gender', ['male', 'female'])->nullable();
-            $table->integer('age')->nullable();
-            $table->decimal('weight_kg', 6, 2)->nullable();
-            $table->integer('height_cm')->nullable();
-            $table->string('height_display')->nullable(); // store "5' 7\""
-            $table->string('weight_unit')->default('kg'); // kg or lb
-            $table->string('height_unit')->default('cm'); // cm or ft_in
-            $table->string('activity_level')->nullable(); // sedentary, lightly_active, moderately_active, very_active, extra_active
-            $table->integer('result_calories')->nullable(); // main estimated calories (rounded)
-            $table->json('breakdown')->nullable(); // JSON with different activity multipliers
-            $table->json('payload')->nullable(); // raw input payload useful for audit
+            $table->string('report_name', 100);
+            $table->string('report_slug', 100);
+
+            $table->json('input_data');
+            $table->decimal('calculated_score', 6, 2)->nullable();
+            $table->string('interpretation', 100)->nullable();
+
+            $table->string('ip_address', 45);
+            $table->string('country', 100)->nullable();
+            $table->string('city', 100)->nullable();
+            $table->text('user_agent')->nullable();
+
+            $table->index('report_name');
+            $table->index('report_slug');
+            $table->index('created_at');
+            $table->index('ip_address');
+
             $table->timestamps();
         });
     }

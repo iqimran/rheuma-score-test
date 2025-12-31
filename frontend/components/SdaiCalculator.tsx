@@ -131,7 +131,7 @@ export default function SdaiCalculator({
               <span className="text-gray-500 font-normal ml-2">(0-10 scale)</span>
             </label>
             <p className="text-sm text-gray-600 mb-2 italic">
-              "Considering all the ways arthritis affects you, how well are you doing?"
+              Considering all the ways arthritis affects you, how well are you doing?
             </p>
             <input
               type="number"

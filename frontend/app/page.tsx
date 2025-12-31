@@ -36,12 +36,20 @@ export default function Home() {
           <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col">
             <div className="flex items-center justify-center mb-4">
               <div className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-red-400 rounded-full"></div>
+                <div className="flex items-center justify-center gap-2 mb-3 mt-4">
+                  {/* <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-red-400 rounded-full"></div>
                   <h1 className="text-3xl font-bold">
                     <span className="text-red-600">Rheuma</span>
                     <span className="text-blue-500">Score</span>
-                  </h1>
+                  </h1> */}
+                  <Image
+                  src="/rheumascore-logo-actual.png"
+                  alt="RheumaScore"
+                  width={250}
+                  height={70}
+                  priority
+                  className=""
+                />
                 </div>
                 <p className="text-sm text-gray-600 mb-3">
                   Knowledge Platform for rheuma patients
@@ -307,11 +315,20 @@ export default function Home() {
         <footer className="border-t border-gray-200 pt-8 mt-16">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-red-400 rounded-full"></div>
+              {/* <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-red-400 rounded-full"></div>
               <h2 className="text-2xl font-bold">
                 <span className="text-red-600">Rheuma</span>
                 <span className="text-blue-500">Score</span>
-              </h2>
+              </h2> */
+              }
+              <Image
+                  src="/rheumascore-logo-actual.png"
+                  alt="RheumaScore"
+                  width={250}
+                  height={70}
+                  priority
+                  className=""
+                />
             </div>
             <p className="text-sm text-gray-600">
               Copyright © 2025 Jenphar Bangladesh Limited, All rights reserved

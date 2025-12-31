@@ -44,11 +44,11 @@ function DAS28ESR() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       <div className="max-w-5xl mx-auto px-4 py-8">
         <header className="mb-8">
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center justify-center gap-3 mb-2">
             <Activity className="w-8 h-8 text-blue-600" />
             <h1 className="text-3xl font-bold text-slate-800">DAS28-ESR Calculator</h1>
           </div>
-          <p className="text-slate-600">Disease Activity Score-28 for Rheumatoid Arthritis with ESR</p>
+          <p className="text-slate-600 text-center">Disease Activity Score-28 for Rheumatoid Arthritis with ESR</p>
         </header>
 
         <div className="grid lg:grid-cols-3 gap-6">

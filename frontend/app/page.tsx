@@ -26,7 +26,7 @@ export default function Home() {
             </h3>
             <Link href="/calculators/das28-crp">
               <Button
-                className="bg-red-600 hover:bg-red-700 text-white mt-4">
+                className="bg-red-600 hover:bg-red-700 text-white mt-4 w-full">
                 Calculate Now
               </Button>
             </Link>
@@ -74,7 +74,7 @@ export default function Home() {
             </div>
             <h3 className="text-center text-lg font-bold mb-2">DAS 28</h3>
             <Link href="/calculators/das28">
-              <Button className="bg-white text-purple-600 hover:bg-gray-100 mt-4">
+              <Button className="bg-white text-purple-600 hover:bg-gray-100 mt-4 w-full">
                 Calculate Now
               </Button>
             </Link>
@@ -115,7 +115,7 @@ export default function Home() {
                 alt="Arthritis hands"
                 width={200}
                 height={120}
-                className="w-full h-32 object-cover rounded-lg mb-4"
+                className="w-full h-32 object-cover rounded-lg mb-4 w-full"
               />
             </div>
             <h3 className="text-center text-lg font-bold text-gray-800 mb-2">
@@ -132,7 +132,7 @@ export default function Home() {
               </div>
             </div>
             <Link href="/calculators/sdai">
-             <Button className="bg-white text-orange-600 hover:bg-gray-100">
+             <Button className="bg-white text-orange-600 hover:bg-gray-100 w-full">
               Calculate Now
             </Button>
             </Link>
@@ -144,7 +144,7 @@ export default function Home() {
               Ankylosing Spondylitis Disease Activity Score (ASDAS-ESR)
             </h3>
             <Link href="/calculators/asdas-esr">
-              <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+              <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full">
                 Calculate Now
                 </Button>
             </Link>
@@ -155,7 +155,7 @@ export default function Home() {
               Ankylosing Spondylitis Disease Activity (ASDAS-CRP)
             </h3>
             <Link href="/calculators/asdas-crp">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 w-full">
                 Calculate Now
               </Button>
             </Link>
@@ -186,7 +186,7 @@ export default function Home() {
               />
             </div>
              <Link href="/calculators/cdai">
-              <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+              <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full">
                 Calculate Now
               </Button>
               </Link>

@@ -1,10 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { fetchReports } from '../../lib/api';
-
+import { fetchReports } from '@/lib/api'; 
 export default function ReportsPage() {
   const [token, setToken] = useState<string | null>(null);
-  const [reports, setReports] = useState<any>(null);
+  const [reports, setReports] = useState<{ data: any[] } | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {

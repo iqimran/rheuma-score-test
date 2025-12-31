@@ -10,7 +10,7 @@ export function CalculatorGrid() {
           title={c.title}
           desc={c.subtitle}
           href={c.href}
-          badge={c.badge}
+          // badge={c.badge}
         />
       ))}
     </div>

@@ -4,17 +4,14 @@ import { Button } from '../components/ui/button';
 import { Card } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from "next/link";
-import { Poppins, Cairo } from "next/font/google";
+// import { Poppins, Cairo } from "next/font/google";
+import { poppins,cairo } from "@/lib/fonts";
 
-export const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["500", "700", "800"],
-});
-
-export const cairo = Cairo({
-  subsets: ["arabic"],
-  weight: ["500", "700", "800"],
-});
+// export const cairo = Cairo({
+//   subsets: ["arabic"],
+//   weight: ["500", "600", "800"],
+//   variable: "--font-cairo",
+// });
 
 export default function Home() {
   
@@ -58,14 +55,14 @@ export default function Home() {
                   className=""
                 />
                 </div>
-                <p className={`${poppins.className} mb-3 mt-9 
+                <p className={`${cairo.className} mb-3 mt-9 
                   mx-auto
                   max-w-[420px]
                   text-center
-                  text-sm
+                  text-md
                   leading-[1.45]
                   tracking-[0.01em]
-                  text-gray-700`}>
+                  `}>
                   Knowledge Platform for rheuma patients
                 </p>
                 <table className="table-fixed">

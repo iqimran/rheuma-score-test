@@ -4,8 +4,20 @@ import { Button } from '../components/ui/button';
 import { Card } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from "next/link";
+import { Poppins, Cairo } from "next/font/google";
+
+export const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["500", "700", "800"],
+});
+
+export const cairo = Cairo({
+  subsets: ["arabic"],
+  weight: ["500", "700", "800"],
+});
 
 export default function Home() {
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-gray-50">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
@@ -36,40 +48,62 @@ export default function Home() {
           <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col">
             <div className="flex items-center justify-center mb-4">
               <div className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-3 mt-4">
-                  {/* <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-red-400 rounded-full"></div>
-                  <h1 className="text-3xl font-bold">
-                    <span className="text-red-600">Rheuma</span>
-                    <span className="text-blue-500">Score</span>
-                  </h1> */}
+                <div className="flex items-center justify-center gap-2 mb-3 mt-6">
                   <Image
                   src="/rheumascore-logo-actual.png"
                   alt="RheumaScore"
-                  width={250}
+                  width={270}
                   height={70}
                   priority
                   className=""
                 />
                 </div>
-                <p className="text-sm text-gray-600 mb-3">
+                <p className={`${poppins.className} mb-3 mt-9 
+                  mx-auto
+                  max-w-[420px]
+                  text-center
+                  text-sm
+                  leading-[1.45]
+                  tracking-[0.01em]
+                  text-gray-700`}>
                   Knowledge Platform for rheuma patients
                 </p>
-                <div className="flex items-center justify-center gap-4">
-                  <div className="text-center">
-                    <p className="text-blue-500 font-bold text-xl">Jenphar</p>
-                    <p className="text-blue-400 text-sm italic">Bangladesh</p>
-                  </div>
-                  <div className="h-12 w-px bg-gray-300"></div>
-                  <div className="text-center">
-                    <p className="text-blue-600 font-bold text-xl" style={{direction: 'rtl'}}>جنفار</p>
-                    <p className="text-blue-400 text-sm" style={{direction: 'rtl'}}>بنغلاديش</p>
-                  </div>
-                </div>
+                <table className="table-fixed">
+                
+                    <tbody>
+                      <tr>
+                          <td className="w-[54%]">
+                              <div className="">
+                                <p className="text-[#1F4E79] text-left font-extrabold text-3xl tracking-wide">
+                                  Jenphar
+                                </p>
+                                <p className="text-[#4FA3D1] text-left text-lg italic font-medium">
+                                  Bangladesh
+                                </p>
+                              </div>
+                            </td>
+                            <td className="w-[1px] align-middle">
+                              <div className="h-14 w-[2px] bg-[#9CA3AF] opacity-80" />
+                            </td>
+                            <td className="w-1/2"> 
+                              <div className="text-right leading-tight" dir="rtl">
+                                <p className={`${cairo.className} text-[#1F4E79] font-extrabold text-3xl`}>
+                                  جنفار
+                                </p>
+                                <p className={`${cairo.className} text-[#4FA3D1] text-lg text-right font-medium`}>
+                                  بنغلاديش
+                                </p>
+                              </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
               </div>
             </div>
           </Card>
 
-          <Card className="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-2xl shadow-lg text-white flex flex-col justify-between">
+          <Card className="bg-gradient-to-br from-purple-700 to-purple-800 p-6 rounded-2xl shadow-lg text-white flex flex-col justify-between">
             <div className="flex justify-center mb-4">
               <div className="w-32 h-32 relative">
                 <Image

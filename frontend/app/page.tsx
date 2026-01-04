@@ -104,7 +104,7 @@ export default function Home() {
             </Card>
           </div>
           <div className="col-span-12 md:col-span-3 row-span-2">
-            <Card className="bg-gradient-to-br from-purple-700 to-purple-800 p-6 rounded-2xl shadow-lg text-white flex flex-col justify-between">
+            <Card className="bg-[#724FCF] p-6 rounded-2xl shadow-lg text-white flex flex-col justify-between">
               <div className="flex justify-center mb-4">
                 <div className="w-32 h-32 relative">
                   <Image
@@ -117,7 +117,7 @@ export default function Home() {
               </div>
               <h3 className="text-center text-lg font-bold mb-2">DAS 28</h3>
               <Link href="/calculators/das28">
-                <Button className="bg-white text-purple-600 hover:bg-gray-100 mt-4 w-full">
+                <Button className="bg-white text-black hover:bg-gray-100 mt-4 w-full">
                   Calculate Now
                 </Button>
               </Link>
@@ -137,7 +137,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="col-span-12 md:col-span-6 lg:-translate-y-[65px] md:-translate-y-[75px]">
+          <div className="col-span-12 md:col-span-6 lg:-translate-y-[50px] md:-translate-y-[75px]">
             <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col">
               <div className="flex gap-4 mb-4">
                 <div className="w-32 h-34 relative flex-shrink-0">
@@ -156,7 +156,7 @@ export default function Home() {
                     The DAS28-ESP assesses rheumatoid arthritis activity using joint evaluations, CRP levels, and patient-reported to gauge inflammation and disease status.
                   </p>
                  <Link href="/calculators/das28-esr">
-                  <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full">
+                  <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white w-full">
                     Calculate Now
                   </Button>
                 </Link>
@@ -167,7 +167,7 @@ export default function Home() {
 
             </Card>
           </div>
-          <div className="col-span-12 md:col-span-3 row-span-2 md:-translate-y-[45px]"> 
+          <div className="col-span-12 md:col-span-3 row-span-2 lg:-translate-y-[35px] md:-translate-y-[45px]"> 
             <Card className="bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-2xl shadow-lg flex flex-col">
               <div className="flex justify-center mb-4">
                 <div className="w-32 h-32 relative">
@@ -192,7 +192,7 @@ export default function Home() {
                 />
               </div> */}
               <Link href="/calculators/cdai">
-                <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full">
+                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white w-full">
                   Calculate Now
                 </Button>
                 </Link>
@@ -201,7 +201,7 @@ export default function Home() {
         </div>
         
         <div className="grid grid-cols-12 gap-2">
-          <div className="col-span-12 md:col-span-3 md:-translate-y-[115px]">
+          <div className="col-span-12 md:col-span-3 md:-translate-y-[100px]">
             <Card className="bg-gradient-to-br from-yellow-400 to-orange-400 p-6 rounded-2xl shadow-lg flex flex-col">
               {/* <div className="mb-4">
                 <Image
@@ -233,32 +233,32 @@ export default function Home() {
 
             </Card>
           </div>
-          <div className="col-span-12 md:col-span-3 md:-translate-y-[115px]">
+          <div className="col-span-12 md:col-span-3 md:-translate-y-[100px]">
             <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col justify-between">
               <h3 className="text-center text-lg font-bold text-gray-800 mb-4 lg:mt-8 md:mt-8 sm:mt-12">
                 Ankylosing Spondylitis Disease Activity Score (ASDAS-ESR)
               </h3>
               <Link href="/calculators/asdas-esr">
-                <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full">
+                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white w-full">
                   Calculate Now
                   </Button>
               </Link>
             </Card>
           </div>
-          <div className="col-span-12 md:col-span-3 md:-translate-y-[115px]">
-            <Card className="bg-gradient-to-br from-blue-400 to-blue-600 p-6 rounded-2xl shadow-lg text-white flex flex-col justify-between">
-              <h3 className="text-center text-lg font-bold mb-4 lg:mt-14 md:mt-10 sm:mt-12">
+          <div className="col-span-12 md:col-span-3 md:-translate-y-[100px]">
+            <Card className="bg-[#3C91C9] p-6 rounded-2xl shadow-lg text-white flex flex-col justify-between">
+              <h3 className="text-center text-lg font-bold mb-4 lg:mt-5 md:pt-10 sm:pt-12">
                 Ankylosing Spondylitis Disease Activity (ASDAS-CRP)
               </h3>
               <Link href="/calculators/asdas-crp">
-                <Button className="bg-white text-blue-600 hover:bg-gray-100 w-full">
+                <Button className="bg-white text-black hover:bg-gray-100 w-full">
                   Calculate Now
                 </Button>
               </Link>
 
             </Card>
           </div>
-          <div className="col-span-12 md:col-span-3 md:-translate-y-[75px]">
+          <div className="col-span-12 md:col-span-3 lg:-translate-y-[65px] md:-translate-y-[60px]">
             <div className="w-full h-full relative">
               <Image
                 src="/images/4th-right.png"
@@ -288,7 +288,7 @@ export default function Home() {
               </div>
               <div className="p-6 flex justify-between items-center">
                 <h3 className="text-xl font-bold text-gray-800">Liver Health Tips</h3>
-                <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white">
                   Learn more...
                 </Button>
               </div>
@@ -305,7 +305,7 @@ export default function Home() {
               </div>
               <div className="p-6 flex justify-between items-center">
                 <h3 className="text-xl font-bold text-gray-800">Lifestyle Recommendation</h3>
-                <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white">
                   Learn more...
                 </Button>
               </div>
@@ -322,7 +322,7 @@ export default function Home() {
               </div>
               <div className="p-6 flex justify-between items-center">
                 <h3 className="text-xl font-bold text-gray-800">Disease Educational Materials</h3>
-                <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white">
                   Learn more...
                 </Button>
               </div>
@@ -339,7 +339,7 @@ export default function Home() {
               </div>
               <div className="p-6 flex justify-between items-center">
                 <h3 className="text-xl font-bold text-gray-800">Liver Friendly Recipe</h3>
-                <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white">
                   Learn more...
                 </Button>
               </div>
@@ -356,7 +356,7 @@ export default function Home() {
               </div>
               <div className="p-6 flex justify-between items-center">
                 <h3 className="text-xl font-bold text-gray-800">Product List & Contact Info</h3>
-                <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white">
                   Learn more...
                 </Button>
               </div>
@@ -373,7 +373,7 @@ export default function Home() {
               </div>
               <div className="p-6 flex justify-between items-center">
                 <h3 className="text-xl font-bold text-gray-800">Reference</h3>
-                <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white">
                   Learn more...
                 </Button>
               </div>

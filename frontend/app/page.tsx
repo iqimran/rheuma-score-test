@@ -17,9 +17,9 @@ export default function Home() {
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-gray-50">
-      <div className="container mx-auto px-2 py-3 max-w-5xl">
+      <div className="mx-auto px-2 py-6 max-w-[1290px]">
 
-        <div className="grid grid-cols-12 gap-2">
+        <div className="grid grid-cols-12 gap-3">
           <div className="col-span-12 md:col-span-3 row-span-2">
             <Card className="bg-gradient-to-br from-pink-100 to-pink-200 p-6 rounded-2xl shadow-lg flex flex-col justify-between">
               <div className="flex justify-center mb-4">
@@ -126,8 +126,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid grid-cols-12 gap-2">
-          <div className="col-span-12 md:col-span-3 md:-translate-y-[35px]">
+        <div className="grid grid-cols-12 gap-3">
+          <div className="col-span-12 md:col-span-3 pt-4">
             <div className="w-full h-full relative">
               <Image
                 src="/images/2nd-left.png"
@@ -137,10 +137,10 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="col-span-12 md:col-span-6 lg:-translate-y-[50px] md:-translate-y-[75px]">
+          <div className="col-span-12 md:col-span-6 lg:-translate-y-[30px] md:-translate-y-[35px]">
             <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col">
               <div className="flex gap-4 mb-4">
-                <div className="w-32 h-34 relative flex-shrink-0">
+                <div className="w-48 h-40 relative flex-shrink-0">
                   <Image
                     src="/images/dash28-esr.png"
                     alt="Doctor consultation"
@@ -152,7 +152,7 @@ export default function Home() {
                   <h3 className="text-lg font-bold text-gray-800 mb-2">
                     Disease Activity Score-28 (DAS28-ESR)
                   </h3>
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs text-gray-600 mb-8">
                     The DAS28-ESP assesses rheumatoid arthritis activity using joint evaluations, CRP levels, and patient-reported to gauge inflammation and disease status.
                   </p>
                  <Link href="/calculators/das28-esr">
@@ -167,10 +167,10 @@ export default function Home() {
 
             </Card>
           </div>
-          <div className="col-span-12 md:col-span-3 row-span-2 lg:-translate-y-[35px] md:-translate-y-[45px]"> 
+          <div className="col-span-12 md:col-span-3 row-span-2 lg:-translate-y-[8px] md:-translate-y-[10px]"> 
             <Card className="bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-2xl shadow-lg flex flex-col">
               <div className="flex justify-center mb-4">
-                <div className="w-32 h-32 relative">
+                <div className="w-24 h-24 relative">
                   <Image
                     src="/images/cdai.png"
                     alt="Medical professional"
@@ -182,15 +182,6 @@ export default function Home() {
               <h3 className="text-center text-lg font-bold text-gray-800 mb-2">
                 Clinical Disease Activity Index (CDAI)
               </h3>
-              {/* <div className="flex justify-center mb-4">
-                <Image
-                  src="https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=200"
-                  alt="Arthritis"
-                  width={200}
-                  height={100}
-                  className="w-full h-24 object-cover rounded-lg"
-                />
-              </div> */}
               <Link href="/calculators/cdai">
                 <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white w-full">
                   Calculate Now
@@ -200,8 +191,8 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="grid grid-cols-12 gap-2">
-          <div className="col-span-12 md:col-span-3 md:-translate-y-[100px]">
+        <div className="grid grid-cols-12 gap-3">
+          <div className="col-span-12 md:col-span-3 md:-translate-y-[50px]">
             <Card className="bg-gradient-to-br from-yellow-400 to-orange-400 p-6 rounded-2xl shadow-lg flex flex-col">
               {/* <div className="mb-4">
                 <Image
@@ -233,9 +224,9 @@ export default function Home() {
 
             </Card>
           </div>
-          <div className="col-span-12 md:col-span-3 md:-translate-y-[100px]">
+          <div className="col-span-12 md:col-span-3 md:-translate-y-[50px]">
             <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col justify-between">
-              <h3 className="text-center text-lg font-bold text-gray-800 mb-4 lg:mt-8 md:mt-8 sm:mt-12">
+              <h3 className="text-center text-lg font-bold text-gray-800 mb-8 lg:mt-8 md:mt-8 sm:mt-12">
                 Ankylosing Spondylitis Disease Activity Score (ASDAS-ESR)
               </h3>
               <Link href="/calculators/asdas-esr">
@@ -245,10 +236,10 @@ export default function Home() {
               </Link>
             </Card>
           </div>
-          <div className="col-span-12 md:col-span-3 md:-translate-y-[100px]">
+          <div className="col-span-12 md:col-span-3 md:-translate-y-[50px]">
             <Card className="bg-[#3C91C9] p-6 rounded-2xl shadow-lg text-white flex flex-col justify-between">
-              <h3 className="text-center text-lg font-bold mb-4 lg:mt-5 md:pt-10 sm:pt-12">
-                Ankylosing Spondylitis Disease Activity (ASDAS-CRP)
+              <h3 className="text-center text-lg font-bold mb-4 lg:mt-5 md:pt-8 sm:pt-10">
+                Ankylosing Spondylitis Disease Activity <br/> (ASDAS-CRP)
               </h3>
               <Link href="/calculators/asdas-crp">
                 <Button className="bg-white text-black hover:bg-gray-100 w-full">
@@ -258,8 +249,8 @@ export default function Home() {
 
             </Card>
           </div>
-          <div className="col-span-12 md:col-span-3 lg:-translate-y-[65px] md:-translate-y-[60px]">
-            <div className="w-full h-full relative">
+          <div className="col-span-12 md:col-span-3 pt-3">
+            <div className="w-70 h-44 relative">
               <Image
                 src="/images/4th-right.png"
                 alt="Medical consultation"

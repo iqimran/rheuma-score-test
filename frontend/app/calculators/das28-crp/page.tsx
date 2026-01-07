@@ -3,21 +3,30 @@
 import { useState, useEffect } from 'react';
 import { Activity, AlertCircle, Info } from 'lucide-react';
 
-function DAS28CRP() {
-  const [tenderJointCount, setTenderJointCount] = useState(0);
-  const [swollenJointCount, setSwollenJointCount] = useState(0);
-  const [crp, setCrp] = useState(0);
-  const [globalHealth, setGlobalHealth] = useState(0);
-  const [das28Score, setDas28Score] = useState(null);
+type Interpretation = {
+  label: string;
+  color: string;
+  severity: string;
+};
 
-  const calculateDAS28 = () => {
+function DAS28CRP() {
+  const [tenderJointCount, setTenderJointCount] = useState<number>(0);
+  const [swollenJointCount, setSwollenJointCount] = useState<number>(0);
+  const [crp, setCrp] = useState<string>("");
+  const [globalHealth, setGlobalHealth] = useState<number>(0);
+  const [das28Score, setDas28Score] = useState<number>(0);
+
+  const calculateDAS28 = (): number | null => {
+    const crpValue = parseFloat(crp);
+
     // if any input is invalid, return null
-    if (tenderJointCount < 0 || tenderJointCount > 28 || swollenJointCount < 0 || swollenJointCount > 28 || crp < 0) {
+    if (tenderJointCount < 0 || tenderJointCount > 28 || swollenJointCount < 0 || swollenJointCount > 28 || isNaN(crpValue) || crpValue < 0) {
       return null;
     }
+
     const tjcSqrt = Math.sqrt(tenderJointCount);
     const sjcSqrt = Math.sqrt(swollenJointCount);
-    const crpLn = Math.log(crp + 1);
+    const crpLn = Math.log(crpValue + 1);
     const ghScaled = globalHealth * 10;
 
     const score = (0.56 * tjcSqrt) + (0.28 * sjcSqrt) + (0.36 * crpLn) + (0.014 * ghScaled) + 0.96;
@@ -26,11 +35,11 @@ function DAS28CRP() {
   };
 
   useEffect(() => {
-    const score = calculateDAS28();
+    const score = calculateDAS28() || 0;
     setDas28Score(score);
   }, [tenderJointCount, swollenJointCount, crp, globalHealth]);
 
-  const getInterpretation = (score) => {
+  const getInterpretation = (score: number): Interpretation => {
     if (score < 2.6) {
       return { label: 'Remission', color: 'bg-emerald-100 border-emerald-400 text-emerald-800', severity: 'Disease in remission' };
     } else if (score >= 2.6 && score < 3.2) {
@@ -42,7 +51,26 @@ function DAS28CRP() {
     }
   };
 
-  const interpretation = das28Score !== null ? getInterpretation(das28Score) : null;
+  const allowDecimal =
+    (setter: (value: string) => void) => 
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    // Allows: "", 2, 2., 2.2, 0.5
+    if (/^\d*\.?\d*$/.test(value)) {
+      setter(value);
+    }
+  };
+
+  if (das28Score === null) {
+    return null;
+  }
+
+  const interpretation =
+  das28Score !== null ? getInterpretation(das28Score ?? 0) : null;
+  
+  const crpValue = Number.parseFloat(crp);
+  const isCrpValid = !Number.isNaN(crpValue);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
@@ -103,12 +131,11 @@ function DAS28CRP() {
                   </label>
                   <input
                     type="text"
-                    min="0"
-                    step="0.1"
+                    inputMode="decimal"
                     value={crp}
-                    onChange={(e) => setCrp(Math.max(0, parseFloat(e.target.value) || 0))}
+                    onChange={allowDecimal(setCrp)}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
-                  />
+                   />
                   <p className="mt-1 text-xs text-slate-500">Enter CRP value in mg/L</p>
                 </div>
 
@@ -158,7 +185,10 @@ function DAS28CRP() {
                   </div>
                   <div className="flex justify-between">
                     <span>0.36 × ln({crp}+1) =</span>
-                    <span className="font-semibold">{(0.36 * Math.log(crp + 1)).toFixed(3)}</span>
+                    {isCrpValid && (
+                      <span className="font-semibold">{(0.36 * Math.log(crpValue +1)).toFixed(3)}</span>
+                    )}
+                    
                   </div>
                   <div className="flex justify-between">
                     <span>0.014 × {globalHealth} × 10 =</span>
@@ -183,9 +213,9 @@ function DAS28CRP() {
               <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
                 <h2 className="text-xl font-semibold text-slate-800 mb-4">Result</h2>
 
-                <div className={`rounded-lg border-2 p-4 mb-4 ${interpretation.color}`}>
+                <div className={`rounded-lg border-2 p-4 mb-4 ${interpretation?.color}`}>
                   <div className="text-4xl font-bold mb-2">{das28Score.toFixed(2)}</div>
-                  <div className="text-lg font-semibold">{interpretation.label}</div>
+                  <div className="text-lg font-semibold">{interpretation?.label}</div>
                 </div>
 
                 <div className="space-y-2 text-sm">

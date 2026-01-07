@@ -17,7 +17,7 @@ export default function Home() {
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-gray-50">
-      <div className="mx-auto px-2 py-6 max-w-[1290px]">
+      <div className="mx-auto px-2 py-6 max-w-screen-xl">
 
         <div className="grid grid-cols-12 gap-3">
           <div className="col-span-12 md:col-span-3 row-span-2">
@@ -137,7 +137,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="col-span-12 md:col-span-6 lg:-translate-y-[30px] md:-translate-y-[35px]">
+          <div className="col-span-12 md:col-span-6 lg:-translate-y-6 xl:-translate-y-8">
             <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col">
               <div className="flex gap-4 mb-4">
                 <div className="w-48 h-40 relative flex-shrink-0">
@@ -194,15 +194,6 @@ export default function Home() {
         <div className="grid grid-cols-12 gap-3">
           <div className="col-span-12 md:col-span-3 md:-translate-y-[50px]">
             <Card className="bg-gradient-to-br from-yellow-400 to-orange-400 p-6 rounded-2xl shadow-lg flex flex-col">
-              {/* <div className="mb-4">
-                <Image
-                  src="/images/sdai.png"
-                  alt="Arthritis hands"
-                  width={200}
-                  height={120}
-                  className="w-full h-32 object-cover rounded-lg mb-4 w-full"
-                />
-              </div> */}
               <h3 className="text-center text-lg font-bold text-gray-800 mb-2">
                 Simple Disease Activity Index (SDAI)
               </h3>
@@ -226,7 +217,7 @@ export default function Home() {
           </div>
           <div className="col-span-12 md:col-span-3 md:-translate-y-[50px]">
             <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col justify-between">
-              <h3 className="text-center text-lg font-bold text-gray-800 mb-8 lg:mt-8 md:mt-8 sm:mt-12">
+              <h3 className="text-center text-lg font-bold text-gray-800 mb-10 lg:mt-8 md:mt-8 sm:mt-12">
                 Ankylosing Spondylitis Disease Activity Score (ASDAS-ESR)
               </h3>
               <Link href="/calculators/asdas-esr">

@@ -48,7 +48,7 @@ export default function Home() {
             <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col">
               <div className="flex items-center justify-center mb-4">
                 <div className="text-center">
-                  <div className="flex items-center justify-center gap-2 mb-3 mt-6">
+                  <div className="flex items-center justify-center gap-2 mb-3">
                     <Image
                     src="/rheumascore-logo-actual.png"
                     alt="RheumaScore"
@@ -72,27 +72,21 @@ export default function Home() {
                   
                       <tbody>
                         <tr>
-                            <td className="w-[54%]">
-                                <div className="">
-                                  <p className="text-[#1F4E79] text-left font-extrabold text-3xl tracking-wide">
+                            <td className="" colSpan={2}>
+                          <div className="relative w-[458px] sm:w-[658px] md:w-[458px] lg:w-[658px] aspect-[658/123]">
+                                  {/* <p className="text-[#1F4E79] text-left font-extrabold text-3xl tracking-wide">
                                     Jenphar
                                   </p>
                                   <p className="text-[#4FA3D1] text-left text-lg italic font-medium">
                                     Bangladesh
-                                  </p>
-                                </div>
-                              </td>
-                              <td className="w-[1px] align-middle">
-                                <div className="h-14 w-[2px] bg-[#9CA3AF] opacity-80" />
-                              </td>
-                              <td className="w-1/2"> 
-                                <div className="text-right leading-tight" dir="rtl">
-                                  <p className={`${cairo.className} text-[#1F4E79] font-extrabold text-3xl`}>
-                                    جنفار
-                                  </p>
-                                  <p className={`${cairo.className} text-[#4FA3D1] text-lg text-right font-medium`}>
-                                    بنغلاديش
-                                  </p>
+                                  </p> */}
+                                  <Image
+                                    src="/jenphar-logo.png"
+                                    alt="Doctor consultation"
+                                    fill
+                                    priority
+                                    className="object-contain"
+                                  />
                                 </div>
                               </td>
                           </tr>
@@ -127,7 +121,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-12 gap-3">
-          <div className="col-span-12 md:col-span-3 pt-4">
+          <div className="col-span-12 md:col-span-3">
             <div className="w-full h-full relative">
               <Image
                 src="/images/2nd-left.png"
@@ -137,7 +131,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="col-span-12 md:col-span-6 lg:-translate-y-6 xl:-translate-y-8">
+          <div className="col-span-12 md:col-span-6">
             <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col">
               <div className="flex gap-4 mb-4">
                 <div className="w-48 h-40 relative flex-shrink-0">
@@ -152,7 +146,7 @@ export default function Home() {
                   <h3 className="text-lg font-bold text-gray-800 mb-2">
                     Disease Activity Score-28 (DAS28-ESR)
                   </h3>
-                  <p className="text-xs text-gray-600 mb-8">
+                  <p className="text-gray-600 mb-8">
                     The DAS28-ESP assesses rheumatoid arthritis activity using joint evaluations, CRP levels, and patient-reported to gauge inflammation and disease status.
                   </p>
                  <Link href="/calculators/das28-esr">
@@ -191,8 +185,8 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="grid grid-cols-12 gap-3">
-          <div className="col-span-12 md:col-span-3 md:-translate-y-[50px]">
+        <div className="grid grid-cols-12 gap-3 pt-2">
+          <div className="col-span-12 md:col-span-3">
             <Card className="bg-gradient-to-br from-yellow-400 to-orange-400 p-6 rounded-2xl shadow-lg flex flex-col">
               <h3 className="text-center text-lg font-bold text-gray-800 mb-2">
                 Simple Disease Activity Index (SDAI)
@@ -215,7 +209,7 @@ export default function Home() {
 
             </Card>
           </div>
-          <div className="col-span-12 md:col-span-3 md:-translate-y-[50px]">
+          <div className="col-span-12 md:col-span-3">
             <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col justify-between">
               <h3 className="text-center text-lg font-bold text-gray-800 mb-10 lg:mt-8 md:mt-8 sm:mt-12">
                 Ankylosing Spondylitis Disease Activity Score (ASDAS-ESR)
@@ -227,7 +221,7 @@ export default function Home() {
               </Link>
             </Card>
           </div>
-          <div className="col-span-12 md:col-span-3 md:-translate-y-[50px]">
+          <div className="col-span-12 md:col-span-3">
             <Card className="bg-[#3C91C9] p-6 rounded-2xl shadow-lg text-white flex flex-col justify-between">
               <h3 className="text-center text-lg font-bold mb-4 lg:mt-5 md:pt-8 sm:pt-10">
                 Ankylosing Spondylitis Disease Activity <br/> (ASDAS-CRP)
@@ -240,7 +234,7 @@ export default function Home() {
 
             </Card>
           </div>
-          <div className="col-span-12 md:col-span-3 pt-3">
+          <div className="col-span-12 md:col-span-3 pt-14">
             <div className="w-70 h-44 relative">
               <Image
                 src="/images/4th-right.png"
@@ -252,7 +246,7 @@ export default function Home() {
           </div>
         </div>
 
-        <section className="mb-10 md:-translate-y-[70px] sm:pt-6 md:pt-6">
+        <section className="mb-10 pt-8">
           <h2 className="text-4xl font-bold text-center mb-10">
             <span className="text-red-600">Patient's knowledge</span>{' '}
             <span className="text-blue-500">Platform</span>

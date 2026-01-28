@@ -17,12 +17,12 @@ export default function Home() {
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-gray-50">
-      <div className="mx-auto px-2 py-6 max-w-screen-xl">
+      <div className="mx-auto px-2 py-4 max-w-screen-xl">
 
         <div className="grid grid-cols-12 gap-3">
           <div className="col-span-12 md:col-span-3 row-span-2">
             <Card className="bg-gradient-to-br from-pink-100 to-pink-200 p-6 rounded-2xl shadow-lg flex flex-col justify-between">
-              <div className="flex justify-center mb-4">
+              <div className="flex justify-center mb-2">
                 <div className="w-32 h-32 relative">
                   <Image
                     src="/images/dash28-crp.png"
@@ -32,7 +32,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <h3 className="text-center text-lg font-bold text-gray-800 mb-2">
+              <h3 className="text-center text-lg font-bold text-gray-800">
                 Disease Activity Score-28 (DAS28-CRP)
               </h3>
               <Link href="/calculators/das28-crp">
@@ -109,9 +109,9 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <h3 className="text-center text-lg font-bold mb-2">DAS 28</h3>
+              <h3 className="text-center text-lg font-bold mb-3">DAS 28</h3>
               <Link href="/calculators/das28">
-                <Button className="bg-white text-black hover:bg-gray-100 mt-4 w-full">
+                <Button className="bg-white text-black hover:bg-gray-100 mt-6 w-full">
                   Calculate Now
                 </Button>
               </Link>
@@ -127,7 +127,7 @@ export default function Home() {
                 src="/images/2nd-left.png"
                 alt="Medical consultation"
                 fill
-                className="object-contain"
+                //className="object-contain"
               />
             </div>
           </div>
@@ -161,7 +161,7 @@ export default function Home() {
 
             </Card>
           </div>
-          <div className="col-span-12 md:col-span-3 row-span-2 lg:-translate-y-[8px] md:-translate-y-[10px]"> 
+          <div className="col-span-12 md:col-span-3"> 
             <Card className="bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-2xl shadow-lg flex flex-col">
               <div className="flex justify-center mb-4">
                 <div className="w-24 h-24 relative">
@@ -173,7 +173,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <h3 className="text-center text-lg font-bold text-gray-800 mb-2">
+              <h3 className="text-center text-lg font-bold text-gray-800 mb-3">
                 Clinical Disease Activity Index (CDAI)
               </h3>
               <Link href="/calculators/cdai">
@@ -183,9 +183,10 @@ export default function Home() {
                 </Link>
             </Card>
           </div>
+
         </div>
         
-        <div className="grid grid-cols-12 gap-3 pt-2">
+        <div className="grid grid-cols-12 gap-3 py-4">
           <div className="col-span-12 md:col-span-3">
             <Card className="bg-gradient-to-br from-yellow-400 to-orange-400 p-6 rounded-2xl shadow-lg flex flex-col">
               <h3 className="text-center text-lg font-bold text-gray-800 mb-2">
@@ -211,7 +212,7 @@ export default function Home() {
           </div>
           <div className="col-span-12 md:col-span-3">
             <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col justify-between">
-              <h3 className="text-center text-lg font-bold text-gray-800 mb-10 lg:mt-8 md:mt-8 sm:mt-12">
+              <h3 className="text-center text-lg font-bold text-gray-800 mb-11 lg:mt-8 md:mt-8 sm:mt-12">
                 Ankylosing Spondylitis Disease Activity Score (ASDAS-ESR)
               </h3>
               <Link href="/calculators/asdas-esr">
@@ -223,7 +224,7 @@ export default function Home() {
           </div>
           <div className="col-span-12 md:col-span-3">
             <Card className="bg-[#3C91C9] p-6 rounded-2xl shadow-lg text-white flex flex-col justify-between">
-              <h3 className="text-center text-lg font-bold mb-4 lg:mt-5 md:pt-8 sm:pt-10">
+              <h3 className="text-center text-lg font-bold mb-6 lg:mt-5 md:pt-8 sm:pt-10">
                 Ankylosing Spondylitis Disease Activity <br/> (ASDAS-CRP)
               </h3>
               <Link href="/calculators/asdas-crp">
@@ -234,128 +235,17 @@ export default function Home() {
 
             </Card>
           </div>
-          <div className="col-span-12 md:col-span-3 pt-14">
-            <div className="w-70 h-44 relative">
+          <div className="col-span-12 md:col-span-3">
+            <div className="w-full h-full relative">
               <Image
                 src="/images/4th-right.png"
                 alt="Medical consultation"
                 fill
-                className="object-contain"
+                //className="object-contain"
               />
             </div>
           </div>
         </div>
-
-        <section className="mb-10 pt-8">
-          <h2 className="text-4xl font-bold text-center mb-10">
-            <span className="text-red-600">Patient's knowledge</span>{' '}
-            <span className="text-blue-500">Platform</span>
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="relative h-64">
-                <Image
-                  src="https://images.pexels.com/photos/3683107/pexels-photo-3683107.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Liver health"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6 flex justify-between items-center">
-                <h3 className="text-xl font-bold text-gray-800">Liver Health Tips</h3>
-                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white">
-                  Learn more...
-                </Button>
-              </div>
-            </Card>
-
-            <Card className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="relative h-64">
-                <Image
-                  src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Healthy lifestyle"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6 flex justify-between items-center">
-                <h3 className="text-xl font-bold text-gray-800">Lifestyle Recommendation</h3>
-                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white">
-                  Learn more...
-                </Button>
-              </div>
-            </Card>
-
-            <Card className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="relative h-64">
-                <Image
-                  src="https://images.pexels.com/photos/4031867/pexels-photo-4031867.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Education materials"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6 flex justify-between items-center">
-                <h3 className="text-xl font-bold text-gray-800">Disease Educational Materials</h3>
-                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white">
-                  Learn more...
-                </Button>
-              </div>
-            </Card>
-
-            <Card className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="relative h-64">
-                <Image
-                  src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Healthy recipe"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6 flex justify-between items-center">
-                <h3 className="text-xl font-bold text-gray-800">Liver Friendly Recipe</h3>
-                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white">
-                  Learn more...
-                </Button>
-              </div>
-            </Card>
-
-            <Card className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="relative h-64">
-                <Image
-                  src="https://images.pexels.com/photos/6330644/pexels-photo-6330644.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Product information"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6 flex justify-between items-center">
-                <h3 className="text-xl font-bold text-gray-800">Product List & Contact Info</h3>
-                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white">
-                  Learn more...
-                </Button>
-              </div>
-            </Card>
-
-            <Card className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="relative h-64">
-                <Image
-                  src="https://images.pexels.com/photos/1557652/pexels-photo-1557652.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Reference"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6 flex justify-between items-center">
-                <h3 className="text-xl font-bold text-gray-800">Reference</h3>
-                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white">
-                  Learn more...
-                </Button>
-              </div>
-            </Card>
-          </div>
-        </section>
 
         <footer className="border-t border-gray-200 pt-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">

@@ -24,6 +24,7 @@ export default function DAS28Calculator() {
   const [esr, setEsr] = useState('');
   const [crp, setCrp] = useState('');
   const [globalHealth, setGlobalHealth] = useState([50]);
+  const [activeMarker, setActiveMarker] = useState(null); // 'ESR' | 'CRP' | null
 
   /* -------------------- parsed values -------------------- */
   const tjc = Number(tenderJoints) || 0;
@@ -31,6 +32,8 @@ export default function DAS28Calculator() {
   const esrVal = Number(esr);
   const crpVal = Number(crp);
   const gh = globalHealth[0];
+
+  const numericOnly = (value) => value.replace(/[^0-9.]/g, '');
 
   const inputData = {
     patient_id: patientId || null,
@@ -189,9 +192,12 @@ export default function DAS28Calculator() {
                         min="0"
                         max="28"
                         placeholder="0"
-                        type="number"
+                        type="text"
                         value={tenderJoints}
-                        onChange={(e) => setTenderJoints(e.target.value)}
+                        onChange={(e) => {
+                          const tjVal = numericOnly(e.target.value);
+                          setTenderJoints(tjVal);
+                        }}
                         className="h-11"
                         />
                     </div>
@@ -203,12 +209,16 @@ export default function DAS28Calculator() {
                         <p className="text-xs text-slate-500 mt-1 mb-2">Range: 0-28 joints</p>
                         <Input
                         id="swollenJoints"
-                        type="number"
+                        type="text"
                         min="0"
                         max="28"
                         placeholder="0"
                         value={swollenJoints}
-                        onChange={(e) => setSwollenJoints(e.target.value)}
+                        onChange={(e) => { 
+                        const sjVal = numericOnly(e.target.value);
+                        setSwollenJoints(sjVal);
+
+                        }}
                         className="h-11"
                         />
                     </div>
@@ -224,16 +234,26 @@ export default function DAS28Calculator() {
                     <p className="text-xs text-slate-500 mt-1 mb-2">Erythrocyte Sedimentation Rate</p>
                     <Input
                       id="esr"
-                      type="number"
+                      type="text"
+                      inputMode="numeric"
                       min="0"
                       placeholder="0"
                       value={esr}
-                        onChange={(e) => {
-                            setEsr(e.target.value);
-                            if (e.target.value) setCrp(''); // Clear CRP if ESR is entered
+                      onChange={(e) => {
+                          const esrVal = numericOnly(e.target.value);
+                          setEsr(esrVal);
+                          if (e.target.value) {
+                            setCrp('');
+                            setActiveMarker('ESR');
+                          } else {
+                            setActiveMarker(null);
+                          }
                         }
-                        }
-                      className="h-11"
+                      }
+                      className={`h-11 transition-all ${activeMarker === 'ESR'
+                          ? 'ring-2 ring-green-500'
+                          : ''
+                      }`}
                     />
                   </div>
 
@@ -251,9 +271,17 @@ export default function DAS28Calculator() {
                       value={crp}
                         onChange={(e) => {
                             setCrp(e.target.value);
-                            if (e.target.value) setEsr(''); // Clear ESR if CRP is entered
+                            if (e.target.value) {
+                              setEsr(''); // Clear ESR if CRP is entered
+                              setActiveMarker('CRP');
+                            } else {
+                              setActiveMarker(null);
+                            }
                         } }
-                      className="h-11"
+                      className={`h-11 ${activeMarker === 'CRP'
+                        ? 'ring-2 ring-green-500'
+                          : ''
+                        }`}
                     />
                   </div>
                 </div>

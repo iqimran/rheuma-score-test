@@ -66,7 +66,8 @@ export default function Home() {
                     leading-[1.45]
                     tracking-[0.01em]
                     `}>
-                    Knowledge Platform for rheuma patients
+                    {/* Knowledge Platform for rheuma patients */}
+                    Track Disease Activity with Confidence
                   </p>
                   <table className="table-fixed">
                   
@@ -249,13 +250,9 @@ export default function Home() {
 
         <footer className="border-t border-gray-200 pt-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+           
+            {/* Left: Logo */}
             <div className="flex items-center gap-2">
-              {/* <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-red-400 rounded-full"></div>
-              <h2 className="text-2xl font-bold">
-                <span className="text-red-600">Rheuma</span>
-                <span className="text-blue-500">Score</span>
-              </h2> */
-              }
               <Image
                   src="/rheumascore-logo-actual.png"
                   alt="RheumaScore"
@@ -265,9 +262,27 @@ export default function Home() {
                   className=""
                 />
             </div>
-            <p className="text-sm text-gray-600">
-              Copyright © 2025 Jenphar Bangladesh Limited, All rights reserved
-            </p>
+
+            {/* Right: Powered by + Copyright */}
+            <div className="text-center md:text-right">
+              {/* Powered by */}
+              <div className="flex items-center justify-center md:justify-end gap-1 text-xs text-gray-600 mb-1">
+                <span>Powered by</span>
+                <Image
+                  src="/dacivo-logo.png"   // change to your image path
+                  alt="Powered by"
+                  width={60}
+                  height={20}
+                  className="object-contain"
+                />
+              </div>
+
+              {/* Copyright */}
+              <p className="text-sm text-gray-600">
+                Copyright © 2025 Jenphar Bangladesh Limited, All rights reserved
+              </p>
+            </div>
+
           </div>
         </footer>
       </div>

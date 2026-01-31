@@ -4,6 +4,9 @@ import Link from "next/link";
 import { AppShell } from "../components/AppShell";
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/remo-favicon.png",
+  },
   title: "Rheumatology Calculators",
   description: "DAS28, CDAI, SDAI, ASDAS calculators (frontend UI)",
 };

@@ -99,7 +99,7 @@ export default function Home() {
             </Card>
           </div>
           <div className="col-span-12 md:col-span-3 row-span-2">
-            <Card className="bg-[#724FCF] p-6 rounded-2xl shadow-lg text-white flex flex-col justify-between">
+            {/* <Card className="bg-[#724FCF] p-6 rounded-2xl shadow-lg text-white flex flex-col justify-between">
               <div className="flex justify-center mb-4">
                 <div className="w-32 h-32 relative">
                   <Image
@@ -117,11 +117,33 @@ export default function Home() {
                 </Button>
               </Link>
 
+            </Card> */}
+            <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col justify-between">
+              <div className="flex justify-center mb-4">
+                <div className="w-32 h-32 relative">
+                  <Image
+                    src="/images/dash28-esr.png"
+                    alt="Medical presentation"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+              <h3 className="text-center text-lg font-bold mb-2">Disease Activity Score-28 (DAS28-ESR)</h3>
+              {/* <p className="text-gray-600 mb-8">
+                The DAS28-ESP assesses rheumatoid arthritis activity using joint evaluations, CRP levels, and patient-reported to gauge inflammation and disease status.
+              </p> */}
+              <Link href="/calculators/das28-esr">
+                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white w-full">
+                  Calculate Now
+                </Button>
+              </Link>
+
             </Card>
           </div>
         </div>
 
-        <div className="grid grid-cols-12 gap-3">
+        <div className="grid grid-cols-12 gap-3 py-2">
           <div className="col-span-12 md:col-span-3">
             <div className="w-full h-full relative">
               <Image
@@ -137,7 +159,7 @@ export default function Home() {
               <div className="flex gap-4 mb-4">
                 <div className="w-48 h-40 relative flex-shrink-0">
                   <Image
-                    src="/images/dash28-esr.png"
+                    src="/images/cdai.png"
                     alt="Doctor consultation"
                     fill
                     className="object-contain"
@@ -145,12 +167,12 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-gray-800 mb-2">
-                    Disease Activity Score-28 (DAS28-ESR)
+                    Clinical Disease Activity Index (CDAI)
                   </h3>
                   <p className="text-gray-600 mb-8">
-                    The DAS28-ESP assesses rheumatoid arthritis activity using joint evaluations, CRP levels, and patient-reported to gauge inflammation and disease status.
+                    The CDAI provides a comprehensive disease severity overview using only clinical data, without requiring laboratory tests.
                   </p>
-                 <Link href="/calculators/das28-esr">
+                  <Link href="/calculators/cdai">
                   <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white w-full">
                     Calculate Now
                   </Button>
@@ -158,82 +180,6 @@ export default function Home() {
                 </div>
 
               </div>
-
-
-            </Card>
-          </div>
-          <div className="col-span-12 md:col-span-3"> 
-            <Card className="bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-2xl shadow-lg flex flex-col">
-              <div className="flex justify-center mb-4">
-                <div className="w-24 h-24 relative">
-                  <Image
-                    src="/images/cdai.png"
-                    alt="Medical professional"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-              <h3 className="text-center text-lg font-bold text-gray-800 mb-3">
-                Clinical Disease Activity Index (CDAI)
-              </h3>
-              <Link href="/calculators/cdai">
-                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white w-full">
-                  Calculate Now
-                </Button>
-                </Link>
-            </Card>
-          </div>
-
-        </div>
-        
-        <div className="grid grid-cols-12 gap-3 py-4">
-          <div className="col-span-12 md:col-span-3">
-            <Card className="bg-gradient-to-br from-yellow-400 to-orange-400 p-6 rounded-2xl shadow-lg flex flex-col">
-              <h3 className="text-center text-lg font-bold text-gray-800 mb-2">
-                Simple Disease Activity Index (SDAI)
-              </h3>
-              <div className="flex justify-center mb-4">
-                <div className="w-20 h-20 relative">
-                  <Image
-                    src="/images/sdai.png"
-                    alt="Medical chart"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-              <Link href="/calculators/sdai">
-              <Button className="bg-white text-orange-600 hover:bg-gray-100 w-full">
-                Calculate Now
-              </Button>
-              </Link>
-
-            </Card>
-          </div>
-          <div className="col-span-12 md:col-span-3">
-            <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col justify-between">
-              <h3 className="text-center text-lg font-bold text-gray-800 mb-11 lg:mt-8 md:mt-8 sm:mt-12">
-                Ankylosing Spondylitis Disease Activity Score (ASDAS-ESR)
-              </h3>
-              <Link href="/calculators/asdas-esr">
-                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white w-full">
-                  Calculate Now
-                  </Button>
-              </Link>
-            </Card>
-          </div>
-          <div className="col-span-12 md:col-span-3">
-            <Card className="bg-[#3C91C9] p-6 rounded-2xl shadow-lg text-white flex flex-col justify-between">
-              <h3 className="text-center text-lg font-bold mb-6 lg:mt-5 md:pt-8 sm:pt-10">
-                Ankylosing Spondylitis Disease Activity <br/> (ASDAS-CRP)
-              </h3>
-              <Link href="/calculators/asdas-crp">
-                <Button className="bg-white text-black hover:bg-gray-100 w-full">
-                  Calculate Now
-                </Button>
-              </Link>
-
             </Card>
           </div>
           <div className="col-span-12 md:col-span-3">
@@ -242,10 +188,104 @@ export default function Home() {
                 src="/images/4th-right.png"
                 alt="Medical consultation"
                 fill
-                //className="object-contain"
+              //className="object-contain"
               />
             </div>
           </div>
+        </div>
+        
+        <div className="grid grid-cols-12 gap-3 py-2">
+          <div className="col-span-12 md:col-span-3">
+            <Card className="bg-white p-6 rounded-2xl shadow-lg flex flex-col justify-between">
+              <h4 className="text-center text-md font-bold text-gray-800 mb-3">
+                Ankylosing Spondylitis Disease Activity Score (ASDAS-ESR)
+              </h4>
+              <div className="flex justify-center mb-4">
+                <div className="w-28 h-28 relative">
+                  <Image
+                    src="/images/asdas-esr.jpg"
+                    alt="Medical chart"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+              <Link href="/calculators/asdas-esr">
+                <Button className="bg-[#3C91C9] hover:bg-[#4FA3D1] text-white w-full">
+                  Calculate Now
+                </Button>
+              </Link>
+            </Card>
+          </div>
+
+          <div className="col-span-12 md:col-span-6">
+            <Card className="bg-gradient-to-br from-yellow-400 to-orange-400 p-6 rounded-2xl shadow-lg flex flex-col">
+
+              <div className="flex gap-4 mb-4">
+                <div className="w-48 h-40 relative flex-shrink-0">
+                  <Image
+                    src="/images/sdai.png"
+                    alt="Medical chart"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="text-center text-lg font-bold text-gray-800 mb-2">
+                    Simple Disease Activity Index (SDAI)
+                  </h3>
+
+                  <p className="text-gray-600 mb-10">
+                    The SDAI provides an excellent overview of a patient's disease severity (it correlates closely with the CDAI which does not require laboratory data) and the DAS-28.
+                  </p>
+
+                  <Link href="/calculators/sdai">
+                    <Button className="bg-white text-orange-600 hover:bg-gray-100 w-full">
+                      Calculate Now
+                    </Button>
+                  </Link>
+
+                </div>
+              </div>
+
+
+            </Card>
+          </div>
+
+          <div className="col-span-12 md:col-span-3">
+            <Card className="bg-[#3C91C9] p-6 rounded-2xl shadow-lg text-white flex flex-col justify-between">
+              <h4 className="text-center text-md font-bold mb-3">
+                Ankylosing Spondylitis Disease Activity (ASDAS-CRP)
+              </h4>
+              <div className="flex justify-center mb-4">
+                <div className="w-28 h-28 relative">
+                  <Image
+                    src="/images/asdas-crp.jpg"
+                    alt="Medical chart"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+              <Link href="/calculators/asdas-crp">
+                <Button className="bg-white text-black hover:bg-gray-100 w-full">
+                  Calculate Now
+                </Button>
+              </Link>
+
+            </Card>
+          </div>
+          {/* <div className="col-span-12 md:col-span-3">
+            <div className="w-full h-full relative">
+              <Image
+                src="/images/4th-right.png"
+                alt="Medical consultation"
+                fill
+                //className="object-contain"
+              />
+            </div>
+          </div> */}
         </div>
 
         <section className="mb-10 pt-8">

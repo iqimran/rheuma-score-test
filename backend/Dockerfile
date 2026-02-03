@@ -1,17 +1,14 @@
 ############################
 # 1) Composer dependencies #
 ############################
-FROM php:8.2-cli-alpine AS vendor
+FROM php:8.2-cli AS vendor
 
 # System dependencies required by Composer + Laravel
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y \
     git unzip curl \
-    icu-dev libzip-dev \
-    libpng-dev libjpeg-turbo-dev libwebp-dev \
-    oniguruma-dev \
-    openssl-dev \
-    libsodium-dev \
-    linux-headers
+    libicu-dev libzip-dev \
+    libpng-dev libjpeg-dev libwebp-dev \
+    libsodium-dev
 
 # PHP extensions required by Laravel
 RUN docker-php-ext-configure gd --with-jpeg --with-webp \
@@ -32,21 +29,14 @@ WORKDIR /app
 # Copy only composer files (better cache)
 COPY composer.json composer.lock ./
 
-ENV COMPOSER_ALLOW_SUPERUSER=1
-ENV COMPOSER_MEMORY_LIMIT=-1
-
 # Install PHP dependencies (CI-safe)
-RUN composer install \
-    --no-dev \
-    --prefer-dist \
-    --no-interaction \
-    --optimize-autoloader
+RUN composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
 
 
 ############################
 # 2) Build Vite assets
 ############################
-FROM node:22-alpine AS vite
+FROM node:22 AS vite
 
 WORKDIR /app
 
@@ -66,7 +56,7 @@ RUN npm run build
 ############################
 # 3) PHP runtime image
 ############################
-FROM php:8.2-fpm-alpine
+FROM php:8.2-fpm
 
 # Runtime system dependencies
 RUN apk add --no-cache \

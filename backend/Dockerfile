@@ -13,7 +13,6 @@ RUN apt-get update && apt-get install -y \
 # PHP extensions required by Laravel
 RUN docker-php-ext-configure gd --with-jpeg --with-webp \
     && docker-php-ext-install \
-    pdo \
     pdo_mysql \
     mbstring \
     zip \
@@ -30,13 +29,17 @@ WORKDIR /app
 COPY composer.json composer.lock ./
 
 # Install PHP dependencies (CI-safe)
-RUN composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
+RUN composer install \
+    --no-dev \
+    --prefer-dist \
+    --no-interaction \
+    --optimize-autoloader
 
 
 ############################
 # 2) Build Vite assets
 ############################
-FROM node:22 AS vite
+FROM node:22-alpine AS vite
 
 WORKDIR /app
 
@@ -59,18 +62,15 @@ RUN npm run build
 FROM php:8.2-fpm
 
 # Runtime system dependencies
-RUN apk add --no-cache \
-    bash curl mysql-client \
-    icu-dev libzip-dev \
-    libpng-dev libjpeg-turbo-dev libwebp-dev \
-    oniguruma-dev \
-    openssl-dev \
+RUN apt-get update && apt-get install -y \
+    bash curl default-mysql-client \
+    libicu-dev libzip-dev \
+    libpng-dev libjpeg-dev libwebp-dev \
     libsodium-dev
 
 # Runtime PHP extensions
 RUN docker-php-ext-configure gd --with-jpeg --with-webp \
     && docker-php-ext-install \
-    pdo \
     pdo_mysql \
     mbstring \
     zip \
